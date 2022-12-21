@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div ng-app="App" ng-controller="myController" class="container">
+        <form action="">
+            <div>
+            <label for="">Name:</label>
+            <br>
+            <input id="name" class="name" type="text" placeholder="Enter Name " ng-model="newcontact.name">
+            
+            <i class="fas fa-check-circle success-icon"></i>
+            <i class="fas fa-exclamation-circle failure-icon"></i>
+            <div class="error"></div>
+            </div>
+            <div>
+            <label for="">Email:</label>
+            <br>
+            <input name="email" class="email" type="email" placeholder="Enter Email" ng-modek="newcontact.email"><i class="fas fa-check-circle success-icon"></i>
+            <i class="fas fa-exclamation-circle failure-icon"></i><br>
+            <div class="error"></div>
+            </div>
+            <div>
+            <label for="">Password:</label><br>
+            <input id="password" class="password" type="password" placeholder="Enter password" ng-model="newcontact.password"><i class="fas fa-check-circle success-icon"></i>
+            <i class="fas fa-exclamation-circle failure-icon"></i><br>
+            <div class="error"></div>
+            </div>
+            <div>
+            <label for="">Phone:</label><br>
+            <input id="phone" class="phone" type="text" placeholder="Enter phone"  ng-model="newcontact.phone">
+            <i class="fas fa-check-circle success-icon"></i>
+            <i class="fas fa-exclamation-circle failure-icon"></i><br>
+            <div class="error"></div>
+            </div>
+            <input type="hidden" ng-model="newcontact.id">
+            <input type="submit" value="Submit" ng-click="saveContact()" class="btn">
+        </form>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr style="max-width: 600px ;">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="contact in contacts">
+            <td>{{contact.name}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.phone}}</td>
+            <td>
+                <a href="#" ng-click="edit(contact.id)">Edit</a>
+                <a href="#" ng-click="delete(contact.id)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    <script src="/main.js"></script>
+</body>
+</html>
